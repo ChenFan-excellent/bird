@@ -1,0 +1,21 @@
+# Unity auto-generated folders
+Library/
+Temp/
+Obj/
+Logs/
+UserSettings/
+
+# IDE junk
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.user
+*.pidb
+*.unityproj
+
+# OS / cache files
+.DS_Store
+Thumbs.db
+desktop.ini

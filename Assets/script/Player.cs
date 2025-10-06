@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         if(Input.GetMouseButton(0))
         {
             rigidbodyBird.velocity = Vector2.zero;
-            rigidbodyBird.AddForce(new Vector2(0, force));
+            rigidbodyBird.AddForce(new Vector2(0, force),ForceMode2D.Impulse);
         }
     }
     public void Idel()
@@ -48,6 +48,23 @@ public class Player : MonoBehaviour
     {
         this.animationBird.SetTrigger("death");
     }
+
+    public void BeginPlayable()
+    {
+        this.isDeath = false;
+
+        if (rigidbodyBird != null)
+        {
+            rigidbodyBird.simulated = true;
+            rigidbodyBird.velocity = Vector2.zero;
+        }
+
+        animationBird.ResetTrigger("Idel");
+        animationBird.ResetTrigger("death");
+        animationBird.ResetTrigger("Flying");
+        animationBird.Play("Flying", 0, 0f);  
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Death();

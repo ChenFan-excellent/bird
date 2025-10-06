@@ -42,7 +42,8 @@ public class game : MonoBehaviour
 
     void Start()
     {
-        this.ReadyPanel.SetActive(true);
+        this.staue = GAME_STAUE.Ready;
+
         this.player.onDeath += Player_onDeath;
         this.player.getScore = onPlayScore;
         if (PlayerPrefs.HasKey("best score"))
@@ -84,7 +85,7 @@ public class game : MonoBehaviour
     public void startGame()
     {
         this.staue = GAME_STAUE.InGame;
-        this.player.Flying();
+        this.player.BeginPlayable();
         PlpelineManager.startRun();
     }
     public void UpdatePanel()

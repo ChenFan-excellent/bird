@@ -400,7 +400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &551958985
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1711,8 +1711,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbodyBird: {fileID: 1771282989}
-  force: 100
-  animationBird: {fileID: 0}
+  force: 5
+  animationBird: {fileID: 1771282990}
   isDeath: 0
 --- !u!50 &1771282989
 Rigidbody2D:

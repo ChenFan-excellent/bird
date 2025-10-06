@@ -53,8 +53,8 @@ public class PlpelineManager : MonoBehaviour
         }
     }
     public void startRun()
-    {
-        coroutine = StartCoroutine(generatePlpelines());
+    {        
+        coroutine = StartCoroutine(generatePlpelines());       
     }
     public void stop() 
     {

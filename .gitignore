@@ -19,3 +19,11 @@ UserSettings/
 .DS_Store
 Thumbs.db
 desktop.ini
+# --- Allow WebGL site in /docs for GitHub Pages ---
+!docs/
+!docs/**
+!docs/Build/
+!docs/Build/**
+!docs/TemplateData/
+!docs/TemplateData/**
+!docs/index.html

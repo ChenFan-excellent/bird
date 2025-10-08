@@ -5,22 +5,10 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Player2 : MonoBehaviour
+public class Player2 : unit
 {
-    public Rigidbody2D rigidbodyBird;
-    public float speed = 100f;
-    public Animator animationBird;
-    public bool isDeath = false;
-    public delegate void DeathNotify();
     public event DeathNotify onDeath;
-    private Vector3 birdpos;
-    public UnityAction <int> getScore;
-
-    public GameObject bulletTemplate;
-
-    public float fireRate = 10f;
-
-    public float HP = 5f;
+    float fireTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +17,6 @@ public class Player2 : MonoBehaviour
         birdpos = this.transform.position;
     }
 
-    float fireTimer = 0;
     // Update is called once per frame
     void Update()
     {
@@ -52,41 +39,14 @@ public class Player2 : MonoBehaviour
         {
             GameObject go = Instantiate(bulletTemplate);
             go.transform.position = this.transform.position;
-
             fireTimer = 0f;
         }
-    }
-
-    public void Idel()
-    {
-        this.rigidbodyBird.simulated = false;
-        this.animationBird.SetTrigger("Idel");
-    }
-    public void Flying()
-    {
-        this.animationBird.SetTrigger("Flying");
-        this.rigidbodyBird.simulated = true;
     }
     public void deathani()
     {
         this.animationBird.SetTrigger("death");
     }
-
-    public void BeginPlayable()
-    {
-        this.isDeath = false;
-
-        if (rigidbodyBird != null)
-        {
-            rigidbodyBird.simulated = true;
-            rigidbodyBird.velocity = Vector2.zero;
-        }
-        animationBird.ResetTrigger("Idel");
-        animationBird.ResetTrigger("death");
-        animationBird.ResetTrigger("Flying");
-        animationBird.Play("Flying", 0, 0f);  
-    }
-
+   
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Player:OnCollisionEnter2D :" + collision.gameObject.name + " : " + gameObject.name);
@@ -133,11 +93,5 @@ public class Player2 : MonoBehaviour
         {
             this.onDeath();
         }
-    }
-    public void init()
-    {
-        this.transform.position = birdpos;
-        Idel();
-        this.isDeath = false;        
-    }
+    }    
 }

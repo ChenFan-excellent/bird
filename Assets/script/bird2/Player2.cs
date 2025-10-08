@@ -38,8 +38,7 @@ public class Player2 : MonoBehaviour
             return;
         Vector2 pos = this.transform.position;
         pos.x += Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        pos.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
-        Debug.Log(Input.GetAxis("Horizontal") + ", " + Input.GetAxis("Vertical"));
+        pos.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;    
 
         this.transform.position = pos;
         if(Input.GetButton("Fire1"))
@@ -96,18 +95,24 @@ public class Player2 : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     { 
         element bullet = collision.gameObject.GetComponent<element>();
-        if (bullet == null)
+        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+        if (bullet == null && enemy == null)
         {
             return;
         }
         Debug.Log("Player: OnTriggerEnter2D : " + collision.gameObject.name + " : " + gameObject.name);
-        if(bullet.side == SIDE.enemy)
+        if(bullet != null&&bullet.side == SIDE.enemy)
         {
             this.HP -= bullet.power;
             if(HP <= 0)
             {
                 this.Death();
             }
+        }
+        if(enemy != null)
+        {
+            this.HP =0;           
+            this.Death();           
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

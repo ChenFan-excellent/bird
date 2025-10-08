@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: e2733c1651b65c74eb5baea148849286, type: 3}
-  m_Color: {r: 0.53785443, g: 0.71341103, b: 0.9245283, a: 1}
+  m_Color: {r: 0.37421376, g: 1, b: 0.8661031, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2363402859509696697}
   - component: {fileID: 4214749086792999223}
-  - component: {fileID: 723325473480199201}
   m_Layer: 0
   m_Name: bird
   m_TagString: Untagged
@@ -161,7 +160,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c3439dee6690d3947b15ce33770af8d8, type: 3}
-  m_Color: {r: 0.8622474, g: 0.8679245, b: 0.4721727, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -171,27 +170,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &723325473480199201
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3953679004421941217}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 12873a8750056b14dbe68dc0c03ca5fb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6087687885931391766
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +182,7 @@ GameObject:
   - component: {fileID: 613040773167830088}
   - component: {fileID: 4554160548319997896}
   - component: {fileID: 5972479731753234263}
+  - component: {fileID: 7076806163167592615}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -307,6 +286,28 @@ MonoBehaviour:
   isDeath: 0
   bulletTemplate: {fileID: 7786453536054827647, guid: 2cc05bb5ba330db43b687816823994d7, type: 3}
   fireRate: 10
+  HP: 10
+--- !u!95 &7076806163167592615
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6087687885931391766}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 12873a8750056b14dbe68dc0c03ca5fb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8416865825532467967
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +382,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: c314098dba78d9d4d988f38be046e864, type: 3}
-  m_Color: {r: 0.21152234, g: 0.4113067, b: 0.9748427, a: 1}
+  m_Color: {r: 0.21176468, g: 0.9764706, b: 0.75760406, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

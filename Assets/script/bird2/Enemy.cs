@@ -17,6 +17,12 @@ public class Enemy : MonoBehaviour
 
     public GameObject bulletTemplate;
 
+    public ENEMY_TYPE enemy_type;
+
+    public Vector2 Range;
+
+    public float init_y = 0;
+
     public float fireRate = 10f;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +30,8 @@ public class Enemy : MonoBehaviour
         animationBird = GetComponent<Animator>();
         this.Flying();
         birdpos = this.transform.position;
+        init_y = Random.Range(-Range.x, Range.y);
+        this.transform.localPosition = new Vector3(0, init_y, 0);
     }
 
     float fireTimer = 0;
@@ -33,7 +41,13 @@ public class Enemy : MonoBehaviour
         fireTimer += Time.deltaTime;
         if (isDeath == true)
             return;
-        this.transform.position += new Vector3(-Time.deltaTime * speed, 0, 0);
+        float y = 0;
+        if(enemy_type == ENEMY_TYPE.Swing)
+        {
+            y = Mathf.Sin(Time.timeSinceLevelLoad) * 3f;
+        }
+
+        this.transform.position = new Vector3(this.transform.position.x - Time.deltaTime * speed, init_y + y, 0);
 
         this.Fire();
 

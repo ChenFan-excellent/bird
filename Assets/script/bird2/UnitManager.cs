@@ -5,35 +5,58 @@ using UnityEngine;
 public class UnitManager : MonoBehaviour
 {
     public GameObject enemyTemplate;
+    public GameObject enemyTemplate2;
+    public GameObject enemyTemplate3;
 
     public List<Enemy> enemies = new List<Enemy>();
 
     Coroutine coroutine = null;
 
-    public float speed = 3f;
-
-    public Vector2 Range;
+    public float speed1 = 1f;
+    public float speed2 = 3f;
+    public float speed3 = 5f;
 
     public void Begin()
     {
         coroutine = StartCoroutine(generateEnemies());
     }
-    public void CreateEnemy()
+    public void CreateEnemy(GameObject template)
     {
-        GameObject obj = Instantiate(enemyTemplate, this.transform);
+        if (template == null)
+        {
+            return;
+        }
+        GameObject obj = Instantiate(template, this.transform);
         Enemy p = obj.GetComponent<Enemy>();
         enemies.Add(p);
 
-        float y = Random.Range(-Range.x, Range.y);
-        obj.transform.localPosition = new Vector3(0, y, 0);
-
     }
+    float timer1 = 0f;
+    float timer2 = 0f;
+    float timer3 = 0f;
     IEnumerator generateEnemies()
     {      
         while(true)
         {
-            CreateEnemy();
-            yield return new WaitForSeconds(speed);
+            if(timer1 >= speed1)
+            {
+                CreateEnemy(enemyTemplate);
+                timer1 = 0f;
+            }
+            if (timer2 >= speed2)
+            {
+                CreateEnemy(enemyTemplate2);
+                timer2 = 0f;
+            }
+            if (timer3 >= speed3)
+            {
+                CreateEnemy(enemyTemplate3);
+                timer3 = 0f;
+            }
+            timer1++;
+            timer2++;
+            timer3++;
+            yield return new WaitForSeconds(1f);
         }
     }
     public void stop()

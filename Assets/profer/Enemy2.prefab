@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: e2733c1651b65c74eb5baea148849286, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9559748, g: 0.38117608, b: 0.3637513, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -160,7 +160,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c3439dee6690d3947b15ce33770af8d8, type: 3}
-  m_Color: {r: 0.6289307, g: 0.35306552, b: 0.2986431, a: 1}
+  m_Color: {r: 0.53239113, g: 1, b: 0.50628924, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 7215359628350991459}
   - component: {fileID: 5884808012659042858}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
   isDeath: 0
   lifetime: 30
   bulletTemplate: {fileID: 7786453536054827647, guid: 64a1d00879435f0408070eb8535a818b, type: 3}
-  enemy_type: 1
+  enemy_type: 2
   Range: {x: 3.3, y: 4.8}
   init_y: 0
   fireRate: 1
@@ -385,7 +385,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: c314098dba78d9d4d988f38be046e864, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.86750233, g: 0.23300098, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

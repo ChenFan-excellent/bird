@@ -325,9 +325,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 5
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 5
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -739,14 +739,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTemplate: {fileID: 6087687885931391766, guid: 59963b2f627312f43a45a4437583ab30, type: 3}
+  enemyTemplate2: {fileID: 6087687885931391766, guid: 5d8424f55ed710f409ac0b336751e0e6, type: 3}
+  enemyTemplate3: {fileID: 6087687885931391766, guid: 4e17787d938fae3498a26dc935739e71, type: 3}
   enemies: []
-  speed: 3
-  Range: {x: 3.3, y: 4.8}
---- !u!1 &798864018 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6087687885931391766, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
-  m_PrefabInstance: {fileID: 1524347236876844823}
-  m_PrefabAsset: {fileID: 0}
+  speed1: 1
+  speed2: 3
+  speed3: 5
 --- !u!1 &926418938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,33 +1753,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5972479731753234263, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
   m_PrefabInstance: {fileID: 1524347236876844823}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798864018}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 801fea3a97c41b545b9f42eee42b824c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1771282996
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798864018}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 12873a8750056b14dbe68dc0c03ca5fb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1827596587
 GameObject:
   m_ObjectHideFlags: 0
@@ -2106,8 +2083,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5972479731753234263, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
-      propertyPath: animationBird
-      value: 
+      propertyPath: HP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5972479731753234263, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
+      propertyPath: fireRate
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6087687885931391766, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
       propertyPath: m_Name
@@ -2153,14 +2134,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 723325473480199201, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6087687885931391766, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1771282996}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

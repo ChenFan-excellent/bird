@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class unit : MonoBehaviour
 {
+    protected SIDE side;
+
     public Rigidbody2D rigidbodyBird;
     public float speed = 100f;
     public Animator animationBird;
@@ -21,17 +23,34 @@ public class unit : MonoBehaviour
     public float HP = 10f;
     public float MaxHP = 10f;
 
+    float fireTimer = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        animationBird = GetComponent<Animator>();
+        birdpos = this.transform.position;
+        OnStart();
+    }
+
+    protected virtual void OnStart()
+    {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-             
+        fireTimer += Time.deltaTime;
+        if (isDeath == true)
+            return;
+        OnUpdate();
     }
+    protected virtual void OnUpdate()
+    {
+
+    }
+
     public void init()
     {
         this.transform.position = birdpos;
@@ -52,7 +71,17 @@ public class unit : MonoBehaviour
         animationBird.ResetTrigger("Flying");
         animationBird.Play("Flying", 0, 0f);
     }
-    
+    public void Fire()
+    {
+        if (fireTimer > 1f / fireRate)
+        {
+            GameObject go = Instantiate(bulletTemplate);
+            go.transform.position = this.transform.position;
+            go.GetComponent<element>().direction = side == SIDE.player ? 1 : -1;
+            fireTimer = 0f;
+        }
+    }
+
     public void Idel()
     {
         this.rigidbodyBird.simulated = false;

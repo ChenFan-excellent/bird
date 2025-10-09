@@ -8,21 +8,16 @@ using UnityEngine.Events;
 public class Player2 : unit
 {
     public event DeathNotify onDeath;
-    float fireTimer = 0;
     // Start is called before the first frame update
-    void Start()
+    override protected void OnStart()
     {
-        animationBird = GetComponent<Animator>();
         this.Idel();
-        birdpos = this.transform.position;
+        side = SIDE.player;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        fireTimer += Time.deltaTime;
-        if (isDeath == true)
-            return;
+    override protected void OnUpdate()
+    {      
         Vector2 pos = this.transform.position;
         pos.x += Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         pos.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;    
@@ -33,15 +28,7 @@ public class Player2 : unit
             this.Fire();
         }
     }
-    public void Fire()
-    {
-        if (fireTimer > 1f / fireRate)
-        {
-            GameObject go = Instantiate(bulletTemplate);
-            go.transform.position = this.transform.position;
-            fireTimer = 0f;
-        }
-    }
+    
     public void deathani()
     {
         this.animationBird.SetTrigger("death");

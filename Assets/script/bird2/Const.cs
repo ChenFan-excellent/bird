@@ -13,4 +13,5 @@ public enum ENEMY_TYPE
 {
     Normal = 1,
     Swing = 2,
+    Boss = 3,
 }

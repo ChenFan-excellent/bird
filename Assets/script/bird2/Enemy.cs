@@ -10,23 +10,18 @@ public class Enemy : unit
     public Vector2 Range;
     public event DeathNotify onDeath;
     public float init_y = 0;
-    float fireTimer = 0;
     // Start is called before the first frame update
-    void Start()
+    override protected void OnStart()
     {
-        animationBird = GetComponent<Animator>();
         this.Flying();
-        birdpos = this.transform.position;
         init_y = Random.Range(-Range.x, Range.y);
         this.transform.localPosition = new Vector3(0, init_y, 0);
+        side = SIDE.enemy;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        fireTimer += Time.deltaTime;
-        if (isDeath == true)
-            return;
+    override protected void OnUpdate()
+    {       
         float y = 0;
         if(enemy_type == ENEMY_TYPE.Swing)
         {
@@ -38,16 +33,7 @@ public class Enemy : unit
         this.Fire();
 
     }
-    public void Fire()
-    {
-        if (fireTimer > 1f / fireRate)
-        {
-            GameObject go = Instantiate(bulletTemplate);
-            go.transform.position = this.transform.position;
-            go.GetComponent<element>().direction = -1;
-            fireTimer = 0f;
-        }
-    }
+    
     public void deathani()
     {
         this.animationBird.SetTrigger("enemydie");

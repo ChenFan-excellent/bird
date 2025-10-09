@@ -25,6 +25,8 @@ public class unit : MonoBehaviour
 
     float fireTimer = 0;
 
+    public event DeathNotify onDeath;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,7 +79,7 @@ public class unit : MonoBehaviour
         {
             GameObject go = Instantiate(bulletTemplate);
             go.transform.position = this.transform.position;
-            go.GetComponent<element>().direction = side == SIDE.player ? 1 : -1;
+            go.GetComponent<Element>().direction = side == SIDE.player ? Vector3.right : Vector3.left;
             fireTimer = 0f;
         }
     }
@@ -91,5 +93,26 @@ public class unit : MonoBehaviour
     {
         this.animationBird.SetTrigger("Flying");
         this.rigidbodyBird.simulated = true;
+    }
+    public void Damage(float power)
+    {
+        this.HP -= power;
+        if(this.HP <= 0)
+        {
+            this.Death();
+        }
+    }
+    protected void Death()
+    {
+        this.isDeath = true;
+        if (this.onDeath != null)
+        {
+            this.onDeath();
+        }
+        OnDeath();
+    }
+    virtual protected void OnDeath()
+    {
+
     }
 }

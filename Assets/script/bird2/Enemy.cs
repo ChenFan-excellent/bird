@@ -7,8 +7,8 @@ public class Enemy : unit
 {    
     public ENEMY_TYPE enemy_type;
 
+
     public Vector2 Range;
-    public event DeathNotify onDeath;
     public float init_y = 0;
     // Start is called before the first frame update
     override protected void OnStart()
@@ -17,6 +17,7 @@ public class Enemy : unit
         init_y = Random.Range(-Range.x, Range.y);
         this.transform.localPosition = new Vector3(0, init_y, 0);
         side = SIDE.enemy;
+
     }
 
     // Update is called once per frame
@@ -33,11 +34,6 @@ public class Enemy : unit
         this.Fire();
 
     }
-    
-    public void deathani()
-    {
-        this.animationBird.SetTrigger("enemydie");
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -46,7 +42,7 @@ public class Enemy : unit
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        element bullet = collision.gameObject.GetComponent<element>();
+        Element bullet = collision.gameObject.GetComponent<Element>();
         if (bullet == null)
         {
             return;
@@ -54,7 +50,11 @@ public class Enemy : unit
         Debug.Log("Enemy: OnTriggerEnter2D : " + collision.gameObject.name + " : " + gameObject.name);
         if (bullet.side == SIDE.player)
         {
-            this.Death();          
+            this.HP -= 1;
+            if(this.HP <= 0)
+            {
+                this.Death();
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -68,15 +68,13 @@ public class Enemy : unit
             }
         }
     }
-    private void Death()
-    {
-        this.isDeath = true;
-        
-        if (this.onDeath != null)
-        {
-            this.onDeath();
-        }
+    override protected void OnDeath()
+    {        
         deathani();
         Destroy(this.gameObject,0.3f);
-    }   
+    }
+    public void deathani()
+    {
+        this.animationBird.SetTrigger("enemydie");
+    }
 }

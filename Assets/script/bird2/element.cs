@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class element : MonoBehaviour
+public class Element : MonoBehaviour
 {
     public float speed = 10f;
 
     public SIDE side;
 
-    public int direction = 1;
+    public Vector3 direction = Vector3.zero;
 
     public int power = 1;
 
@@ -25,7 +25,7 @@ public class element : MonoBehaviour
     }
     protected virtual void OnUpdate()
     {
-        this.transform.position += new Vector3(speed * Time.deltaTime * direction, 0, 0);
+        this.transform.position += speed * Time.deltaTime * direction;
         if (!Screen.safeArea.Contains(Camera.main.WorldToScreenPoint(this.transform.position)))
         {
             Destroy(this.gameObject, 1f);

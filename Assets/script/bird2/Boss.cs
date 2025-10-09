@@ -20,17 +20,40 @@ public class Boss : Enemy
     {
         this.Flying();
         StartCoroutine(FireMissile());
+        StartCoroutine(Fire2());
     }
 
     IEnumerator FireMissile()
     {
-        yield return new WaitForSeconds(5f);
-        animationBird.SetTrigger("BossSkill");
+        while(true)
+        {
+            yield return new WaitForSeconds(10f);
+            animationBird.SetTrigger("BossSkill");
+        }
+    }
+
+    IEnumerator Fire2()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject go = Instantiate(bulletTemplate, firePoint2.position, battery.rotation);
+                Element bullet = go.GetComponent<Element>();
+                bullet.direction = (target.transform.position - firePoint2.position).normalized;
+                yield return new WaitForSeconds(0.05f);
+            }
+        }
     }
 
     override protected void OnUpdate()
     {
-
+        if(target != null)
+        {
+            Vector3 dir = (target.gameObject.transform.position - battery.position).normalized;
+            battery.rotation = Quaternion.FromToRotation(Vector3.left, dir);
+        }
     }
 
     public void OnMissileLoad()

@@ -7,10 +7,11 @@ using UnityEngine.Events;
 
 public class Player2 : unit
 {
-    public event DeathNotify onDeath;
     // Start is called before the first frame update
     override protected void OnStart()
     {
+        this.HP = 100f;
+        this.MaxHP = 100f;
         this.Idel();
         side = SIDE.player;
     }
@@ -41,7 +42,7 @@ public class Player2 : unit
     }
     private void OnTriggerEnter2D(Collider2D collision)
     { 
-        element bullet = collision.gameObject.GetComponent<element>();
+        Element bullet = collision.gameObject.GetComponent<Element>();
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
         if (bullet == null && enemy == null)
         {
@@ -58,8 +59,11 @@ public class Player2 : unit
         }
         if(enemy != null)
         {
-            this.HP =0;           
-            this.Death();           
+            this.HP -= 25;           
+            if (HP <= 0)
+            {
+                this.Death();
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -72,13 +76,5 @@ public class Player2 : unit
                 this.getScore(1);
             }
         }      
-    }
-    private void Death()
-    {
-        this.isDeath = true;
-        if(this.onDeath != null)
-        {
-            this.onDeath();
-        }
-    }    
+    }       
 }

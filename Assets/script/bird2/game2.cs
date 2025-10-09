@@ -110,7 +110,7 @@ public class game2 : MonoBehaviour
         this.player.init();
         text.text = "0";
         score = 0;
-        this.player.HP = 10f;
+        this.player.HP = 100f;
     }
     public void undateBest()
     {

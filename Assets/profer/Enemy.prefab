@@ -283,13 +283,14 @@ MonoBehaviour:
   rigidbodyBird: {fileID: 4554160548319997896}
   speed: 1
   animationBird: {fileID: 5884808012659042858}
-  isDeath: 0
-  lifetime: 30
+  fireRate: 1
   bulletTemplate: {fileID: 7786453536054827647, guid: 64a1d00879435f0408070eb8535a818b, type: 3}
+  HP: 1
+  MaxHP: 1
   enemy_type: 1
+  hp: 1
   Range: {x: 3.3, y: 4.8}
   init_y: 0
-  fireRate: 1
 --- !u!95 &5884808012659042858
 Animator:
   serializedVersion: 5

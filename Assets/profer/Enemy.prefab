@@ -116,6 +116,7 @@ Transform:
   m_Children:
   - {fileID: 6920508623631252354}
   - {fileID: 8053892260634975107}
+  - {fileID: 3934287763886448095}
   m_Father: {fileID: 8205677094413217339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4214749086792999223
@@ -170,6 +171,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4311437247849023391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3934287763886448095}
+  m_Layer: 0
+  m_Name: firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3934287763886448095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311437247849023391}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.438, y: -0.068, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2363402859509696697}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6087687885931391766
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,12 +315,12 @@ MonoBehaviour:
   rigidbodyBird: {fileID: 4554160548319997896}
   speed: 1
   animationBird: {fileID: 5884808012659042858}
+  firePoint: {fileID: 3934287763886448095}
   fireRate: 1
   bulletTemplate: {fileID: 7786453536054827647, guid: 64a1d00879435f0408070eb8535a818b, type: 3}
   HP: 1
   MaxHP: 1
   enemy_type: 1
-  hp: 1
   Range: {x: 3.3, y: 4.8}
   init_y: 0
 --- !u!95 &5884808012659042858

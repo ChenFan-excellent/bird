@@ -37,7 +37,7 @@ public class Player2 : unit
    
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Player:OnCollisionEnter2D :" + collision.gameObject.name + " : " + gameObject.name);
+        //Debug.Log("Player:OnCollisionEnter2D :" + collision.gameObject.name + " : " + gameObject.name);
         //Death();
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -48,7 +48,7 @@ public class Player2 : unit
         {
             return;
         }
-        Debug.Log("Player: OnTriggerEnter2D : " + collision.gameObject.name + " : " + gameObject.name);
+        //Debug.Log("Player: OnTriggerEnter2D : " + collision.gameObject.name + " : " + gameObject.name);
         if(bullet != null&&bullet.side == SIDE.enemy)
         {
             this.HP -= bullet.power;
@@ -68,7 +68,7 @@ public class Player2 : unit
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Player: OnTriggerExit2D : " + collision.gameObject.name + " : " + gameObject.name);
+        //Debug.Log("Player: OnTriggerExit2D : " + collision.gameObject.name + " : " + gameObject.name);
         if (collision.gameObject.name == "ScoreArea")
         {
             if(this.getScore != null)

@@ -11,6 +11,7 @@ public class unit : MonoBehaviour
     public float speed = 100f;
     public Animator animationBird;
     protected bool isDeath = false;
+    public Transform firePoint;
 
     public float fireRate = 10f;
 
@@ -78,7 +79,7 @@ public class unit : MonoBehaviour
         if (fireTimer > 1f / fireRate)
         {
             GameObject go = Instantiate(bulletTemplate);
-            go.transform.position = this.transform.position;
+            go.transform.position = firePoint.position;
             go.GetComponent<Element>().direction = side == SIDE.player ? Vector3.right : Vector3.left;
             fireTimer = 0f;
         }

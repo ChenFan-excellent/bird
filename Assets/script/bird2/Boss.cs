@@ -6,7 +6,6 @@ public class Boss : Enemy
 {
     public GameObject missileTemplate;
 
-    public Transform firePoint1;
     public Transform firePoint2;
     public Transform firePoint3;
 
@@ -16,11 +15,48 @@ public class Boss : Enemy
 
     public unit target;
 
+
     override protected void OnStart()
     {
         this.Flying();
-        StartCoroutine(FireMissile());
+        StartCoroutine(Enter());
+        attack();
+    }
+
+    void attack()
+    {
+        StartCoroutine(Fire1());
         StartCoroutine(Fire2());
+        StartCoroutine(FireMissile());
+    }
+
+    IEnumerator Enter()
+    {
+        this.transform.position = new Vector3(14, 0, 0);
+        yield return MoveTo(new Vector3(9.53f, 0,0));
+    }
+
+    IEnumerator Fire1()
+    {
+        while (true)
+        {
+            Fire();
+            yield return null;
+        }
+    }
+
+    IEnumerator MoveTo(Vector3 pos)
+    {
+        while(true)
+        {
+            Vector3 dir = (pos - this.transform.position);
+            if (dir.magnitude <= 0.1)
+            {
+                break;
+            }
+            this.transform.position += speed * Time.deltaTime * dir.normalized;
+            yield return null;
+        }
     }
 
     IEnumerator FireMissile()

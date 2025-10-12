@@ -1834,6 +1834,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801fea3a97c41b545b9f42eee42b824c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1771282995 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8205677094413217339, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
+  m_PrefabInstance: {fileID: 1524347236876844823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1827596587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,20 +1979,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: ebc8eeea7cbf475469453f00d064f262, type: 2}
     - target: {fileID: 5950710858015169909, guid: 2a75cbfde0f4dde42a846efe44563570, type: 3}
+      propertyPath: HP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950710858015169909, guid: 2a75cbfde0f4dde42a846efe44563570, type: 3}
       propertyPath: hp
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950710858015169909, guid: 2a75cbfde0f4dde42a846efe44563570, type: 3}
+      propertyPath: MaxHP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950710858015169909, guid: 2a75cbfde0f4dde42a846efe44563570, type: 3}
+      propertyPath: speed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5950710858015169909, guid: 2a75cbfde0f4dde42a846efe44563570, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1771282991}
+    - target: {fileID: 5950710858015169909, guid: 2a75cbfde0f4dde42a846efe44563570, type: 3}
+      propertyPath: enemy_type
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6087687885931391766, guid: 2a75cbfde0f4dde42a846efe44563570, type: 3}
       propertyPath: m_Name
       value: EnemyBoos
       objectReference: {fileID: 0}
     - target: {fileID: 8205677094413217339, guid: 2a75cbfde0f4dde42a846efe44563570, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.53
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8205677094413217339, guid: 2a75cbfde0f4dde42a846efe44563570, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2234,6 +2255,10 @@ PrefabInstance:
       propertyPath: fireRate
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5972479731753234263, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1771282995}
     - target: {fileID: 6087687885931391766, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
       propertyPath: m_Name
       value: Player

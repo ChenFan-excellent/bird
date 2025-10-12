@@ -49,6 +49,7 @@ public class game2 : MonoBehaviour
     void Start()
     {
         this.staue = GAME_STAUE.Ready;
+        Level level1 = Resources.Load<Level>("Level1");
 
         this.player.onDeath += Player_onDeath;
         this.player.getScore = onPlayScore;

@@ -99,9 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   side: 3
-  direction: -1
+  direction: {x: 0, y: 0, z: 0}
   power: 2
-  lifetime: 20
+  lifetime: 10
   target: {fileID: 0}
-  damage: 20
+  damage: 5
   Fxexplod: {fileID: 662434501561121121, guid: b00217cf8a46f6f44bd0a8c4c4a71ba6, type: 3}

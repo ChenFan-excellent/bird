@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class game2 : MonoBehaviour
 {
+    public int currentLevelId = 1;
     public enum GAME_STAUE
     { 
        Ready,
@@ -26,6 +27,7 @@ public class game2 : MonoBehaviour
 
     public PlpelineManager2 PlpelineManager;
     public UnitManager unitManager;
+    public LevelManager levelManager;
 
     public Player2 player;
     int score = 0;
@@ -49,7 +51,7 @@ public class game2 : MonoBehaviour
     void Start()
     {
         this.staue = GAME_STAUE.Ready;
-        Level level1 = Resources.Load<Level>("Level1");
+        //Level level1 = Resources.Load<Level>("Level1");
 
         this.player.onDeath += Player_onDeath;
         this.player.getScore = onPlayScore;
@@ -96,6 +98,10 @@ public class game2 : MonoBehaviour
         this.player.BeginPlayable();
         PlpelineManager.startRun();
         unitManager.Begin();
+
+        this.levelManager.unitManager = this.unitManager;
+        this.levelManager.currentPlayer = this.player;
+        this.levelManager.LoadLevel(this.currentLevelId);
     }
     public void UpdatePanel()
     {

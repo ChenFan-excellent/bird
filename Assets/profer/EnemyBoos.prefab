@@ -594,9 +594,9 @@ MonoBehaviour:
   firePoint: {fileID: 6042881355192028128}
   fireRate: 1
   bulletTemplate: {fileID: 7786453536054827647, guid: 64a1d00879435f0408070eb8535a818b, type: 3}
-  HP: 500
-  MaxHP: 500
-  enemy_type: 0
+  HP: 100
+  MaxHP: 100
+  enemy_type: 3
   Range: {x: 0, y: 0}
   init_y: 0
   missileTemplate: {fileID: 8839079164612197200, guid: 181d6a4b8d3b8da4f8d0e3c32b18faf2, type: 3}

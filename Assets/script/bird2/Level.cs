@@ -6,41 +6,48 @@ public class Level : MonoBehaviour
 {
     public int LevelID;
     public string Name;
-    public class SpawnRule
-    {
-        public int ID;
-        public string Name;
-        public unit Monster;
-        public float Period;
-        public int MaxNum;
-    }
+
+    public Player2 currentPlayer;
+    public Boss boss;
 
     public List<SpawnRule> Rules = new List<SpawnRule>();
 
-    public unit Monster1;
-    public float Period1;
-    public int MaxNum1;
+    public UnitManager unitManager;
 
-    public unit Monster2;
-    public float Period2;
-    public int MaxNum2;
+    float timer = 0;
 
-    public unit Monster3;
-    public float Period3;
-    public int MaxNum3;
+    float bossTime = 60f;
 
-    public unit Monster4;
-    public float Period4;
-    public int MaxNum4;
+    float timeSinceLevelStart = 0;
+    float levelStartTime = 0;
+
+    Boss boss_true = null;
+
+    bool oneboss = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        for(int i =0; i<Rules.Count;i++)
+        {
+            SpawnRule rule = Instantiate<SpawnRule>(Rules[i]);
+            rule.unitManager = this.unitManager;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        timeSinceLevelStart = Time.realtimeSinceStartup - this.levelStartTime;
+
+        if (timeSinceLevelStart > bossTime)
+        {
+            if(oneboss == false)
+            {
+                boss_true = (Boss)unitManager.CreateEnemy(this.boss.gameObject);
+                boss_true.target = currentPlayer;
+                oneboss = true;
+            }
+        }
     }
 }

@@ -18,18 +18,18 @@ public class UnitManager : MonoBehaviour
 
     public void Begin()
     {
-        coroutine = StartCoroutine(generateEnemies());
+        //coroutine = StartCoroutine(generateEnemies());
     }
-    public void CreateEnemy(GameObject template)
+    public Enemy CreateEnemy(GameObject template)
     {
         if (template == null)
         {
-            return;
+            return null;
         }
         GameObject obj = Instantiate(template, this.transform);
         Enemy p = obj.GetComponent<Enemy>();
         enemies.Add(p);
-
+        return p;
     }
     float timer1 = 0f;
     float timer2 = 0f;
@@ -61,7 +61,7 @@ public class UnitManager : MonoBehaviour
     }
     public void stop()
     {
-        StopCoroutine(coroutine);
-        this.enemies.Clear();
+        //StopCoroutine(coroutine);
+        //this.enemies.Clear();
     }
 }

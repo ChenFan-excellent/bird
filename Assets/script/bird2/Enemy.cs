@@ -7,6 +7,7 @@ public class Enemy : unit
 {    
     public ENEMY_TYPE enemy_type;
 
+    public float attack = 0;
 
     public Vector2 Range;
     public float init_y = 0;

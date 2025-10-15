@@ -26,7 +26,16 @@ public class Element : MonoBehaviour
     protected virtual void OnUpdate()
     {
         this.transform.position += speed * Time.deltaTime * direction;
-        if (!Screen.safeArea.Contains(Camera.main.WorldToScreenPoint(this.transform.position)))
+
+        //GameUtil.Instance.InScreen(this.transform.position);
+
+        //singleton<GameUtil>.Instance.InScreen(this.transform.position);
+
+        //GameUtil util = new GameUtil();
+        //util.InScreen(this.transform.position);
+
+
+        if (!GameUtil.instance.InScreen(this.transform.position))
         {
             Destroy(this.gameObject, 1f);
         }

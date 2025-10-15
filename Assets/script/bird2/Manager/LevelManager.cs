@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : MonoSingleton<LevelManager>
 {
     public List<Level> Levels;
     public int currentLevelId = 1;
 
     public Level level;
 
-    public UnitManager unitManager;
-    public Player2 currentPlayer;
+    //public UnitManager unitManager;
 
     public void LoadLevel(int levelID)
     {
-        this.level.unitManager = this.unitManager;
         this.level = Instantiate<Level>(Levels[levelID - 1]);
-        this.level.currentPlayer = this.currentPlayer;
+        Debug.LogFormat("LevelID - 1  =  {0}", levelID - 1);
     }
 
     // Start is called before the first frame update

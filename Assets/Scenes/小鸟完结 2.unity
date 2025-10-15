@@ -743,9 +743,6 @@ MonoBehaviour:
   enemyTemplate2: {fileID: 6087687885931391766, guid: 5d8424f55ed710f409ac0b336751e0e6, type: 3}
   enemyTemplate3: {fileID: 6087687885931391766, guid: 4e17787d938fae3498a26dc935739e71, type: 3}
   enemies: []
-  speed1: 1
-  speed2: 3
-  speed3: 5
 --- !u!1 &926418938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1887,11 +1884,8 @@ MonoBehaviour:
   ReadyPanel: {fileID: 551958984}
   InGamePanel: {fileID: 589212685}
   GameOverPanel: {fileID: 1693162342}
-  PlpelineManager: {fileID: 112588}
-  unitManager: {fileID: 689527971}
-  levelManager: {fileID: 2142429089}
   player: {fileID: 1771282991}
-  text: {fileID: 1148270453}
+  Player_life: {fileID: 1148270453}
   report1: {fileID: 1355010674}
   report2: {fileID: 926418940}
   HpBar: {fileID: 234695860}
@@ -2212,8 +2206,6 @@ MonoBehaviour:
   - {fileID: 1276813034195419289, guid: d0f2e23b710daa64f98978901a9f51fa, type: 3}
   currentLevelId: 1
   level: {fileID: 1276813034195419289, guid: 7fbfdb9d7ec8fc347aca856bba252ae3, type: 3}
-  unitManager: {fileID: 0}
-  currentPlayer: {fileID: 0}
 --- !u!1001 &1524347236876844823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2224,11 +2216,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5972479731753234263, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
       propertyPath: HP
-      value: 10
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5972479731753234263, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
+      propertyPath: MaxHP
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 5972479731753234263, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
       propertyPath: fireRate
-      value: 5
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5972479731753234263, guid: 85f6cd913800ff54d9db7cc01205f815, type: 3}
       propertyPath: firePoint

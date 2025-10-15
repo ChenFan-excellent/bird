@@ -17,7 +17,6 @@ public class SpawnRule : MonoBehaviour
 
     float timer = 0;
 
-    public UnitManager unitManager;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +40,7 @@ public class SpawnRule : MonoBehaviour
 
             if(timer > Period)
             {
-                Enemy enemy = unitManager.CreateEnemy(this.Monster.gameObject);
+                Enemy enemy = UnitManager.instance.CreateEnemy(this.Monster.gameObject);
                 enemy.MaxHP = this.HP;
                 enemy.attack = this.attack;
                 timer = 0;

@@ -8,16 +8,13 @@ public class Level : MonoBehaviour
     public int LevelID;
     public string Name;
 
-    public Player2 currentPlayer;
     public Boss Boss;
 
     public UnityAction<LEVEL_RESULT> OnLevelEnd;
 
     public List<SpawnRule> Rules = new List<SpawnRule>();
 
-    public UnitManager unitManager;
 
-    float timer = 0;
 
     float bossTime = 60f;
 
@@ -40,7 +37,6 @@ public class Level : MonoBehaviour
         for(int i =0; i<Rules.Count;i++)
         {
             SpawnRule rule = Instantiate<SpawnRule>(Rules[i]);
-            rule.unitManager = this.unitManager;
         }
     }
 
@@ -56,8 +52,8 @@ public class Level : MonoBehaviour
         {
             if(boss == null)
             {
-                boss = (Boss)unitManager.CreateEnemy(this.Boss.gameObject);
-                boss.target = currentPlayer;
+                boss = (Boss)UnitManager.instance.CreateEnemy(this.Boss.gameObject);
+                boss.target = game2.instance.player;
                 boss.onDeath += Boss_true_onDeath;
             }
         }

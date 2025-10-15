@@ -5,7 +5,7 @@ using System.Diagnostics.Contracts;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class game2 : MonoBehaviour
+public class game2 : MonoSingleton<game2>
 {
     public Text uiTextName;
 
@@ -28,13 +28,13 @@ public class game2 : MonoBehaviour
     public GameObject InGamePanel;
     public GameObject GameOverPanel;
 
-    public PlpelineManager2 PlpelineManager;
-    public UnitManager unitManager;
-    public LevelManager levelManager;
+    //public PlpelineManager2 PlpelineManager;
+    //public UnitManager unitManager;
+    //public LevelManager levelManager;
 
     public Player2 player;
     int score = 0;
-    public Text text;
+    public Text Player_life;
     public Text report1;
     public Text report2;
     bool isHasValue = true;
@@ -47,15 +47,13 @@ public class game2 : MonoBehaviour
         set
         {
             this.score = value;
-            this.text.text = score.ToString();
+            this.Player_life.text = score.ToString();
         }
     }
 
     void Start()
     {
         this.staue = GAME_STAUE.Ready;
-        //Level level1 = Resources.Load<Level>("Level1");
-
         this.player.onDeath += Player_onDeath;
         this.player.getScore = onPlayScore;
         if (PlayerPrefs.HasKey("best score"))
@@ -73,45 +71,44 @@ public class game2 : MonoBehaviour
         this.Score += score;
     }
     private void Player_onDeath()
-    {
-        report1.text = text.text;
-        if (int.TryParse(report2.text, out int bestScore) &&
-            int.TryParse(report1.text, out int currentScore))
+    {   
+        if(player.bird_life <= 0)
         {
-            if (currentScore > bestScore)
-            {
-                report2.text = report1.text;
-            }
+            this.staue = GAME_STAUE.GameOver;
+            PlpelineManager2.instance.stop();
+            UnitManager.instance.stop();
+            this.player.deathani();
+            undateBest();
         }
-        this.staue = GAME_STAUE.GameOver;
-        this.PlpelineManager.stop();
-        this.unitManager.stop();
-        this.player.deathani();
-        undateBest();
+        else
+        {
+            player.init();
+            player.Flying();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         this.HpBar.value = Mathf.Lerp(this.HpBar.value, this.player.HP, 0.05f);
+        if (player != null)
+            this.Player_life.text = player.bird_life.ToString();
     }
     public void startGame()
     {
         this.staue = GAME_STAUE.InGame;
         this.player.BeginPlayable();
-        PlpelineManager.startRun();
-        unitManager.Begin();
+        PlpelineManager2.instance.startRun();
+        UnitManager.instance.Begin();
 
-        this.levelManager.unitManager = this.unitManager;
-        this.levelManager.currentPlayer = this.player;
         LoadLevel();
     }
 
     private void LoadLevel()
     {
-        this.levelManager.LoadLevel(this.currentLevelId);
-        this.uiTextName.text = string.Format("LEVEL{0} {1}", this.levelManager.level.LevelID, this.levelManager.level.Name);
-        this.levelManager.level.OnLevelEnd += OnLevelEnd;
+        LevelManager.instance.LoadLevel(this.currentLevelId);
+        this.uiTextName.text = string.Format("LEVEL{0} {1}", LevelManager.instance.level.LevelID, LevelManager.instance.level.Name);
+        LevelManager.instance.level.OnLevelEnd = OnLevelEnd;
     }
 
     private void OnLevelEnd(Level.LEVEL_RESULT result)
@@ -137,9 +134,9 @@ public class game2 : MonoBehaviour
     public void restart()
     {
         this.staue = GAME_STAUE.Ready;
-        this.PlpelineManager.init();
+        PlpelineManager2.instance.init();
         this.player.init();
-        text.text = "0";
+        Player_life.text = "0";
         score = 0;
         this.player.HP = 100f;
     }

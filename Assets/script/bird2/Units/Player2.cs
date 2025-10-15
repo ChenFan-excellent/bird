@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 public class Player2 : unit
 {
+    public int bird_life = 3;
     // Start is called before the first frame update
     override protected void OnStart()
     {
@@ -76,5 +77,9 @@ public class Player2 : unit
                 this.getScore(1);
             }
         }      
-    }       
+    }
+    override protected void OnDeath()
+    {
+        bird_life--;
+    }
 }

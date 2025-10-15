@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class PlpelineManager2 : MonoBehaviour
+public class PlpelineManager2 : MonoSingleton<PlpelineManager2>
 {
     public GameObject Plpeline;
     Coroutine coroutine = null;

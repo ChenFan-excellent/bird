@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8209264493675629011}
   - component: {fileID: 3023327889167718400}
   m_Layer: 0
-  m_Name: Lv1Rule2
+  m_Name: Lv2Rule3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490cccfbd863ba84697d0708ff8e9cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Monster: {fileID: 7215359628350991459, guid: 5d8424f55ed710f409ac0b336751e0e6, type: 3}
-  InitTime: 10
-  Period: 3
-  MaxNum: 15
-  HP: 2
+  Monster: {fileID: 7215359628350991459, guid: 4e17787d938fae3498a26dc935739e71, type: 3}
+  InitTime: 5
+  Period: 5
+  MaxNum: 10
+  HP: 3
   attack: 1
   unitManager: {fileID: 0}

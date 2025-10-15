@@ -44,5 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22a18d3c929ec34f85e0f510351ffbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelID: 1002
+  LevelID: 2
   Name: Second Blood
+  currentPlayer: {fileID: 0}
+  Boss: {fileID: 5950710858015169909, guid: 2a75cbfde0f4dde42a846efe44563570, type: 3}
+  Rules: []
+  unitManager: {fileID: 0}
+  result: 0

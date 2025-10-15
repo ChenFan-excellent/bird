@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4534405504926063471
+--- !u!1 &1071980146001933843
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8209264493675629011}
-  - component: {fileID: 3023327889167718400}
+  - component: {fileID: 6694145410722730124}
+  - component: {fileID: 1276813034195419289}
   m_Layer: 0
-  m_Name: Lv1Rule2
+  m_Name: Level3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8209264493675629011
+--- !u!4 &6694145410722730124
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4534405504926063471}
+  m_GameObject: {fileID: 1071980146001933843}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.889576, y: 3.2791524, z: -0.040532783}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3023327889167718400
+--- !u!114 &1276813034195419289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4534405504926063471}
+  m_GameObject: {fileID: 1071980146001933843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490cccfbd863ba84697d0708ff8e9cf3, type: 3}
+  m_Script: {fileID: 11500000, guid: a22a18d3c929ec34f85e0f510351ffbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Monster: {fileID: 7215359628350991459, guid: 5d8424f55ed710f409ac0b336751e0e6, type: 3}
-  InitTime: 10
-  Period: 3
-  MaxNum: 15
-  HP: 2
-  attack: 1
+  LevelID: 3
+  Name: Third Blood
+  currentPlayer: {fileID: 0}
+  Boss: {fileID: 5950710858015169909, guid: 2a75cbfde0f4dde42a846efe44563570, type: 3}
+  Rules: []
   unitManager: {fileID: 0}
+  result: 0

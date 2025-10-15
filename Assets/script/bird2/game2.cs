@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 
 public class game2 : MonoBehaviour
 {
+    public Text uiTextName;
+
     public int currentLevelId = 1;
     public enum GAME_STAUE
     { 
@@ -101,8 +104,29 @@ public class game2 : MonoBehaviour
 
         this.levelManager.unitManager = this.unitManager;
         this.levelManager.currentPlayer = this.player;
-        this.levelManager.LoadLevel(this.currentLevelId);
+        LoadLevel();
     }
+
+    private void LoadLevel()
+    {
+        this.levelManager.LoadLevel(this.currentLevelId);
+        this.uiTextName.text = string.Format("LEVEL{0} {1}", this.levelManager.level.LevelID, this.levelManager.level.Name);
+        this.levelManager.level.OnLevelEnd += OnLevelEnd;
+    }
+
+    private void OnLevelEnd(Level.LEVEL_RESULT result)
+    {
+        if(result == Level.LEVEL_RESULT.SUCCESS)
+        {
+            this.currentLevelId++;
+            this.LoadLevel();
+        }
+        else
+        {
+            this.staue = GAME_STAUE.GameOver;
+        }
+    }
+
     public void UpdatePanel()
     {
         this.ReadyPanel.SetActive(this.staue == GAME_STAUE.Ready);

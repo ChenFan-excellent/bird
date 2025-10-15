@@ -44,10 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22a18d3c929ec34f85e0f510351ffbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelID: 1001
+  LevelID: 1
   Name: First Blood
-  boss: {fileID: 5950710858015169909, guid: 2a75cbfde0f4dde42a846efe44563570, type: 3}
+  currentPlayer: {fileID: 0}
+  Boss: {fileID: 5950710858015169909, guid: 2a75cbfde0f4dde42a846efe44563570, type: 3}
   Rules:
   - {fileID: 3023327889167718400, guid: a11c8de12bf4dbc4aa74275a17d4aeaa, type: 3}
   - {fileID: 3023327889167718400, guid: b648e88f26d725e4887ee4aec21ed98e, type: 3}
   - {fileID: 3023327889167718400, guid: d0661404e5fad314c8d1564be3eb007b, type: 3}
+  unitManager: {fileID: 0}
+  result: 0

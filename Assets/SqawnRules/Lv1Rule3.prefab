@@ -50,3 +50,4 @@ MonoBehaviour:
   MaxNum: 10
   HP: 3
   attack: 1
+  unitManager: {fileID: 0}

@@ -51,24 +51,10 @@ public class Enemy : unit
         //Debug.Log("Enemy: OnTriggerEnter2D : " + collision.gameObject.name + " : " + gameObject.name);
         if (bullet.side == SIDE.player)
         {
-            this.HP -= 1;
-            if(this.HP <= 0)
-            {
-                this.Death();
-            }
+            this.Damage(bullet.power);
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        //Debug.Log("Enemy: OnTriggerExit2D : " + collision.gameObject.name + " : " + gameObject.name);
-        if (collision.gameObject.name == "ScoreArea")
-        {
-            if (this.getScore != null)
-            {
-                this.getScore(1);
-            }
-        }
-    }
+
     override protected void OnDeath()
     {        
         deathani();

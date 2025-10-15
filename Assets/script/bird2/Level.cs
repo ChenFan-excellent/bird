@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Level : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class Level : MonoBehaviour
     public string Name;
 
     public Player2 currentPlayer;
-    public Boss boss;
+    public Boss Boss;
+
+    public UnityAction<LEVEL_RESULT> OnLevelEnd;
 
     public List<SpawnRule> Rules = new List<SpawnRule>();
 
@@ -21,10 +24,16 @@ public class Level : MonoBehaviour
     float timeSinceLevelStart = 0;
     float levelStartTime = 0;
 
-    Boss boss_true = null;
+    Boss boss = null;
 
-    bool oneboss = false;
 
+    public enum LEVEL_RESULT
+    {
+        NONE,
+        SUCCESS,
+        FAIL
+    }
+    public LEVEL_RESULT result = LEVEL_RESULT.NONE;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,16 +47,29 @@ public class Level : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (this.result == LEVEL_RESULT.SUCCESS)
+            return;
+
         timeSinceLevelStart = Time.realtimeSinceStartup - this.levelStartTime;
 
         if (timeSinceLevelStart > bossTime)
         {
-            if(oneboss == false)
+            if(boss == null)
             {
-                boss_true = (Boss)unitManager.CreateEnemy(this.boss.gameObject);
-                boss_true.target = currentPlayer;
-                oneboss = true;
+                boss = (Boss)unitManager.CreateEnemy(this.Boss.gameObject);
+                boss.target = currentPlayer;
+                boss.onDeath += Boss_true_onDeath;
             }
         }
     }
+
+    private void Boss_true_onDeath()
+    {
+        this.result = LEVEL_RESULT.SUCCESS;
+        if(this.OnLevelEnd != null)
+        {
+            this.OnLevelEnd(this.result);
+        }
+    }
+
 }

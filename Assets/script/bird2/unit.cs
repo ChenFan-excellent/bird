@@ -16,6 +16,8 @@ public class unit : MonoBehaviour
     public float fireRate = 10f;
 
     public delegate void DeathNotify();
+    public event DeathNotify onDeath;
+
     protected Vector3 birdpos;
     public UnityAction<int> getScore;
 
@@ -25,8 +27,6 @@ public class unit : MonoBehaviour
     public float MaxHP = 10f;
 
     float fireTimer = 0;
-
-    public event DeathNotify onDeath;
 
     // Start is called before the first frame update
     void Start()

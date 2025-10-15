@@ -20,10 +20,10 @@ public class Boss : Enemy
     {
         this.Flying();
         StartCoroutine(Enter());
-        attack();
+        Attack();
     }
 
-    void attack()
+    void Attack()
     {
         StartCoroutine(Fire1());
         StartCoroutine(Fire2());

@@ -525,9 +525,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10265136, y: 0.0020404458}
+  m_Offset: {x: 0.028680373, y: 0.002040434}
   serializedVersion: 2
-  m_Radius: 0.2590459
+  m_Radius: 0.3173058
 --- !u!50 &4554160548319997896
 Rigidbody2D:
   serializedVersion: 4
@@ -597,6 +597,7 @@ MonoBehaviour:
   HP: 100
   MaxHP: 100
   enemy_type: 3
+  attack: 0
   Range: {x: 0, y: 0}
   init_y: 0
   missileTemplate: {fileID: 8839079164612197200, guid: 181d6a4b8d3b8da4f8d0e3c32b18faf2, type: 3}

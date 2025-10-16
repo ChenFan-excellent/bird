@@ -9,23 +9,9 @@ public class LevelManager : MonoSingleton<LevelManager>
 
     public Level level;
 
-    //public UnitManager unitManager;
-
     public void LoadLevel(int levelID)
     {
         this.level = Instantiate<Level>(Levels[levelID - 1]);
         Debug.LogFormat("LevelID - 1  =  {0}", levelID - 1);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

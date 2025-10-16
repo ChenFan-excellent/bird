@@ -15,3 +15,9 @@ public enum ENEMY_TYPE
     Swing = 2,
     Boss = 3,
 }
+public enum GAME_STAUE
+{
+    Ready,
+    InGame,
+    GameOver
+}

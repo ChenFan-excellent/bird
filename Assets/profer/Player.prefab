@@ -312,16 +312,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801fea3a97c41b545b9f42eee42b824c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 3
   rigidbodyBird: {fileID: 4554160548319997896}
   speed: 8
   animationBird: {fileID: 7076806163167592615}
-  firePoint: {fileID: 4441063722173455191}
-  fireRate: 10
+  firePoint: {fileID: 8205677094413217339}
+  fireRate: 50
   bulletTemplate: {fileID: 7786453536054827647, guid: 2cc05bb5ba330db43b687816823994d7, type: 3}
-  HP: 100
-  MaxHP: 100
+  HP: 10000
+  MaxHP: 10000
   bird_life: 3
+  invincibleTime: 3
 --- !u!95 &7076806163167592615
 Animator:
   serializedVersion: 5

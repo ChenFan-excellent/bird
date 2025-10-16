@@ -34,6 +34,7 @@ public class Level : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(ShowLevelStart());
         for(int i =0; i<Rules.Count;i++)
         {
             SpawnRule rule = Instantiate<SpawnRule>(Rules[i]);
@@ -66,6 +67,12 @@ public class Level : MonoBehaviour
         {
             this.OnLevelEnd(this.result);
         }
+    }
+
+    IEnumerator ShowLevelStart()
+    {
+        UIManager.instance.ShowLevelStart(string.Format("LEVEL{0} {1}", this.LevelID, this.Name));
+        yield return new WaitForSeconds(2f);
     }
 
 }

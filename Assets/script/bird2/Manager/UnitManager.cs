@@ -4,16 +4,8 @@ using UnityEngine;
 
 public class UnitManager : MonoSingleton<UnitManager>
 {
-    public GameObject enemyTemplate;
-    public GameObject enemyTemplate2;
-    public GameObject enemyTemplate3;
-
     public List<Enemy> enemies = new List<Enemy>();
 
-    public void Begin()
-    {
-        
-    }
     public Enemy CreateEnemy(GameObject template)
     {
         if (template == null)
@@ -25,9 +17,13 @@ public class UnitManager : MonoSingleton<UnitManager>
         enemies.Add(p);
         return p;
     }
-    
-    public void stop()
+    public void init()
     {
 
+    }
+
+    public void Clear()
+    {
+        this.enemies.Clear();
     }
 }

@@ -8,6 +8,9 @@ using UnityEngine.Events;
 public class Player2 : unit
 {
     public int bird_life = 3;
+    public float invincibleTime = 3f;
+
+    private float timer = 100f;
     // Start is called before the first frame update
     override protected void OnStart()
     {
@@ -17,9 +20,32 @@ public class Player2 : unit
         side = SIDE.player;
     }
 
+    public void Rebirth()
+    {
+        StartCoroutine(DoRebirth());
+    }
+
+    IEnumerator DoRebirth()
+    {
+        yield return new WaitForSeconds(1.4f);
+        timer = 0f;
+        this.init();
+        this.Flying();
+    }
+
+    public bool IsInvincible
+    {
+        get { return timer < this.invincibleTime; }
+    }
+
     // Update is called once per frame
     override protected void OnUpdate()
-    {      
+    {
+        if (this.isDeath == true)
+        {
+            return;
+        }
+        timer += Time.deltaTime;
         Vector2 pos = this.transform.position;
         pos.x += Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         pos.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;    
@@ -43,6 +69,13 @@ public class Player2 : unit
     }
     private void OnTriggerEnter2D(Collider2D collision)
     { 
+        if(this.isDeath == true)
+        {
+            return;
+        }
+        if (this.IsInvincible)
+            return;
+
         Element bullet = collision.gameObject.GetComponent<Element>();
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
         if (bullet == null && enemy == null)
@@ -81,5 +114,6 @@ public class Player2 : unit
     override protected void OnDeath()
     {
         bird_life--;
+        this.HP = this.MaxHP;
     }
 }

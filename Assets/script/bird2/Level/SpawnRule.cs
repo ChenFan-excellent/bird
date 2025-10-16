@@ -17,6 +17,7 @@ public class SpawnRule : MonoBehaviour
 
     float timer = 0;
 
+    public ItemDropRule droprule;
 
     // Start is called before the first frame update
     void Start()

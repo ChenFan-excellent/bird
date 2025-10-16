@@ -64,8 +64,7 @@ public class Player2 : unit
    
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("Player:OnCollisionEnter2D :" + collision.gameObject.name + " : " + gameObject.name);
-        //Death();
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     { 
@@ -75,6 +74,12 @@ public class Player2 : unit
         }
         if (this.IsInvincible)
             return;
+
+        Item item = collision.gameObject.GetComponent<Item>();
+        if (item != null)
+        {
+            item.Use(this);
+        }
 
         Element bullet = collision.gameObject.GetComponent<Element>();
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();

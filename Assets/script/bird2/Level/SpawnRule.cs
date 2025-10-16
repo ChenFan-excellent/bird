@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,11 +19,14 @@ public class SpawnRule : MonoBehaviour
     float timer = 0;
 
     public ItemDropRule droprule;
+    ItemDropRule rule;
 
     // Start is called before the first frame update
     void Start()
     {
         this.levelStartTime = Time.realtimeSinceStartup;
+        if (rule != null)
+            rule = Instantiate<ItemDropRule>(droprule);
     }
 
     int num = 0;
@@ -45,8 +49,15 @@ public class SpawnRule : MonoBehaviour
                 enemy.MaxHP = this.HP;
                 enemy.attack = this.attack;
                 timer = 0;
+                enemy.onDeath += Enemy_OnDeath;
                 num++;
             }
         }
+    }
+
+    private void Enemy_OnDeath(unit sender)
+    {
+        if (rule != null)
+            rule.Execute(sender.transform.position);
     }
 }

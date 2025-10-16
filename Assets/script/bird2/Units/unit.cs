@@ -15,7 +15,7 @@ public class unit : MonoBehaviour
 
     public float fireRate = 10f;
 
-    public delegate void DeathNotify();
+    public delegate void DeathNotify(unit sender);
     public event DeathNotify onDeath;
 
     protected Vector3 birdpos;
@@ -108,12 +108,20 @@ public class unit : MonoBehaviour
         this.isDeath = true;
         if (this.onDeath != null)
         {
-            this.onDeath();
+            this.onDeath(this);
         }
         OnDeath();
     }
     virtual protected void OnDeath()
     {
 
+    }
+    public void AddHP(int hp)
+    {
+        this.HP += hp;
+        if(hp>this.MaxHP)
+        {
+            this.HP = this.MaxHP;
+        }
     }
 }

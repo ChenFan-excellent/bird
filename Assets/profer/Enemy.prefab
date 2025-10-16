@@ -318,9 +318,10 @@ MonoBehaviour:
   firePoint: {fileID: 3934287763886448095}
   fireRate: 1
   bulletTemplate: {fileID: 7786453536054827647, guid: 64a1d00879435f0408070eb8535a818b, type: 3}
-  HP: 1
-  MaxHP: 1
+  HP: 3
+  MaxHP: 3
   enemy_type: 1
+  attack: 0
   Range: {x: 3.3, y: 4.8}
   init_y: 0
 --- !u!95 &5884808012659042858

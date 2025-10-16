@@ -27,7 +27,7 @@ public class game2 : MonoSingleton<game2>
         this.player.onDeath += Player_onDeath;        
     }
     
-    private void Player_onDeath()
+    private void Player_onDeath(unit sender)
     {   
         if(player.bird_life <= 0)
         {

@@ -60,7 +60,7 @@ public class Level : MonoBehaviour
         }
     }
 
-    private void Boss_true_onDeath()
+    private void Boss_true_onDeath(unit sender)
     {
         this.result = LEVEL_RESULT.SUCCESS;
         if(this.OnLevelEnd != null)

@@ -14,8 +14,6 @@ public class Player2 : unit
     // Start is called before the first frame update
     override protected void OnStart()
     {
-        this.HP = 100f;
-        this.MaxHP = 100f;
         this.Idel();
         side = SIDE.player;
     }

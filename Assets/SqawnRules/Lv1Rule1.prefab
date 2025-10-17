@@ -51,3 +51,4 @@ MonoBehaviour:
   HP: 2
   attack: 1
   droprule: {fileID: 546450769602721505, guid: 0b300a67fcf1fa6489adf06481e5c0cc, type: 3}
+  rule: {fileID: 0}

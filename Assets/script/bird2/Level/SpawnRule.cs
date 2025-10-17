@@ -25,7 +25,7 @@ public class SpawnRule : MonoBehaviour
     void Start()
     {
         this.levelStartTime = Time.realtimeSinceStartup;
-        if (rule != null)
+        if (droprule != null)
             rule = Instantiate<ItemDropRule>(droprule);
     }
 

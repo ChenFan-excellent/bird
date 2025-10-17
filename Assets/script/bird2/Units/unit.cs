@@ -119,7 +119,7 @@ public class unit : MonoBehaviour
     public void AddHP(int hp)
     {
         this.HP += hp;
-        if(hp>this.MaxHP)
+        if(HP > this.MaxHP)
         {
             this.HP = this.MaxHP;
         }

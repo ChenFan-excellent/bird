@@ -46,8 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelID: 2
   Name: Second Blood
-  currentPlayer: {fileID: 0}
   Boss: {fileID: 5950710858015169909, guid: 2a75cbfde0f4dde42a846efe44563570, type: 3}
-  Rules: []
-  unitManager: {fileID: 0}
+  Rules:
+  - {fileID: 3023327889167718400, guid: 568ba6be0c0046046acdb16b30b64a5b, type: 3}
+  - {fileID: 3023327889167718400, guid: b569123e8aa24ae438d5fe04a496b10f, type: 3}
+  - {fileID: 3023327889167718400, guid: ce113e67bd7fa8444bad48995f42aaf6, type: 3}
   result: 0

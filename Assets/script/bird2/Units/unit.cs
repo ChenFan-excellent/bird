@@ -76,6 +76,7 @@ public class unit : MonoBehaviour
     }
     public void Fire()
     {
+        if (isDeath) return;
         if (fireTimer > 1f / fireRate)
         {
             GameObject go = Instantiate(bulletTemplate);
@@ -97,6 +98,7 @@ public class unit : MonoBehaviour
     }
     public void Damage(float power)
     {
+        if (isDeath) return;
         this.HP -= power;
         if(this.HP <= 0)
         {
@@ -105,6 +107,7 @@ public class unit : MonoBehaviour
     }
     protected void Death()
     {
+        if (isDeath) return;
         this.isDeath = true;
         if (this.onDeath != null)
         {

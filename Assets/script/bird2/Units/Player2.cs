@@ -105,14 +105,7 @@ public class Player2 : unit
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //Debug.Log("Player: OnTriggerExit2D : " + collision.gameObject.name + " : " + gameObject.name);
-        if (collision.gameObject.name == "ScoreArea")
-        {
-            if(this.getScore != null)
-            {
-                this.getScore(1);
-            }
-        }      
+              
     }
     override protected void OnDeath()
     {

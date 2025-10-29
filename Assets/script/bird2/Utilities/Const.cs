@@ -19,5 +19,6 @@ public enum GAME_STAUE
 {
     Ready,
     InGame,
-    GameOver
+    GameOver,
+    finish
 }

@@ -48,6 +48,6 @@ MonoBehaviour:
   InitTime: 5
   Period: 5
   MaxNum: 10
-  HP: 3
+  HP: 9
   attack: 1
-  unitManager: {fileID: 0}
+  droprule: {fileID: 0}

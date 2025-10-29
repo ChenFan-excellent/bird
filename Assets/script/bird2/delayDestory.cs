@@ -5,20 +5,22 @@ using UnityEngine;
 public class delayDestory : MonoBehaviour
 {
     public float delay = 1f;
-    // Start is called before the first frame update
-    void Start()
+    private Coroutine co;                 
+
+    void OnEnable()                      
     {
-        StartCoroutine(Delay());
+        co = StartCoroutine(Delay());
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDisable()                      
     {
-        
+        if (co != null) StopCoroutine(co);
+        co = null;
     }
+
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(delay);
-        this.gameObject.SetActive(false);
+        yield return new WaitForSecondsRealtime(delay); 
+        gameObject.SetActive(false);
     }
 }

@@ -11,6 +11,8 @@ public class Enemy : unit
 
     public Vector2 Range;
     public float init_y = 0;
+    public float lifetime = 20f;
+    private float lifetimer = 0f;
     // Start is called before the first frame update
     override protected void OnStart()
     {
@@ -33,7 +35,11 @@ public class Enemy : unit
         this.transform.position = new Vector3(this.transform.position.x - Time.deltaTime * speed, init_y + y, 0);
 
         this.Fire();
-
+        lifetimer += Time.deltaTime;
+        if(lifetimer > lifetime && enemy_type!= ENEMY_TYPE.Boss)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

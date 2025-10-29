@@ -18,11 +18,11 @@ public class Level : MonoBehaviour
 
     float bossTime = 60f;
 
-    float timeSinceLevelStart = 0;
-    float levelStartTime = 0;
+    float timeSinceLevelStart = 0f;
+    float levelStartTime = -1f;
 
     Boss boss = null;
-
+    bool boss_hasappear = false;
 
     public enum LEVEL_RESULT
     {
@@ -37,7 +37,7 @@ public class Level : MonoBehaviour
         StartCoroutine(ShowLevelStart());
         for(int i =0; i<Rules.Count;i++)
         {
-            SpawnRule rule = Instantiate<SpawnRule>(Rules[i]);
+            SpawnRule rule = Instantiate<SpawnRule>(Rules[i],this.transform);
         }
     }
 
@@ -46,17 +46,15 @@ public class Level : MonoBehaviour
     {
         if (this.result == LEVEL_RESULT.SUCCESS)
             return;
-
+        if (levelStartTime < 0f) return;
         timeSinceLevelStart = Time.realtimeSinceStartup - this.levelStartTime;
 
-        if (timeSinceLevelStart > bossTime)
+        if (timeSinceLevelStart >= bossTime && !boss_hasappear)
         {
-            if(boss == null)
-            {
-                boss = (Boss)UnitManager.instance.CreateEnemy(this.Boss.gameObject);
-                boss.target = game2.instance.player;
-                boss.onDeath += Boss_true_onDeath;
-            }
+            boss_hasappear = true;
+            boss = (Boss)UnitManager.instance.CreateEnemy(this.Boss.gameObject);
+            boss.target = game2.instance.player;
+            boss.onDeath += Boss_true_onDeath;
         }
     }
 
@@ -67,12 +65,15 @@ public class Level : MonoBehaviour
         {
             this.OnLevelEnd(this.result);
         }
+        Destroy(this.gameObject);
     }
 
     IEnumerator ShowLevelStart()
     {
         UIManager.instance.ShowLevelStart(string.Format("LEVEL{0} {1}", this.LevelID, this.Name));
         yield return new WaitForSeconds(2f);
+        levelStartTime = Time.realtimeSinceStartup;
+        timeSinceLevelStart = 0f;
     }
 
 }

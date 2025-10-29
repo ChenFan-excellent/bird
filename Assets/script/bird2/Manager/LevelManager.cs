@@ -11,7 +11,9 @@ public class LevelManager : MonoSingleton<LevelManager>
 
     public void LoadLevel(int levelID)
     {
+        if (levelID > Levels.Count)
+            return;
         this.level = Instantiate<Level>(Levels[levelID - 1]);
-        Debug.LogFormat("LevelID - 1  =  {0}", levelID - 1);
+        Debug.LogFormat("LevelID - 1  =  {0}", levelID - 1);       
     }
 }

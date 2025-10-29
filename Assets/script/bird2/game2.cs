@@ -60,6 +60,11 @@ public class game2 : MonoSingleton<game2>
 
     private void LoadLevel()
     {
+        if(currentLevelId > LevelManager.instance.Levels.Count)
+        {
+            this.staue = GAME_STAUE.finish;
+            return;
+        }
         LevelManager.instance.LoadLevel(this.currentLevelId);
         //UIManager.instance.setUIName();
         LevelManager.instance.level.OnLevelEnd = OnLevelEnd;
@@ -84,7 +89,8 @@ public class game2 : MonoSingleton<game2>
         this.staue = GAME_STAUE.Ready;
         PlpelineManager2.instance.init();
         this.player.init();
-        UIManager.instance.Player_life.text = "0";
+        player.bird_life = 3;
+        //UIManager.instance.Player_life.text = "3";
         this.player.HP = 100f;
     }
     

@@ -8,6 +8,7 @@ public class UIManager : MonoSingleton<UIManager>
     public GameObject ReadyPanel;
     public GameObject InGamePanel;
     public GameObject GameOverPanel;
+    public GameObject GameFinish;
 
     public Slider HpBar;
 
@@ -43,7 +44,7 @@ public class UIManager : MonoSingleton<UIManager>
         this.ReadyPanel.SetActive(game2.instance.staue == GAME_STAUE.Ready);
         this.InGamePanel.SetActive(game2.instance.staue == GAME_STAUE.InGame);
         this.GameOverPanel.SetActive(game2.instance.staue == GAME_STAUE.GameOver);
-
+        this.GameFinish.SetActive(game2.instance.staue == GAME_STAUE.finish);
     }
 
     public void ShowLevelStart(string name)
